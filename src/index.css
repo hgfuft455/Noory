@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Amiri:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Cairo", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Amiri", serif;
+  
+  --color-emerald-950: #022c22;
+  --color-navy-900: #020617;
+  --color-gold-500: #d4af37;
+  --color-gold-600: #b8860b;
+  --color-pearl-50: #fcfbf9;
+  --color-silver-400: #a0a0a0;
+
+  --color-primary: #064e3b; /* Emerald 900 */
+  --color-accent: #d4af37; /* Royal Gold */
+}
+
+@layer utilities {
+  .font-kufi {
+    font-family: var(--font-kufi);
+  }
+
+  .glass {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .glass-dark {
+    background: rgba(2, 6, 23, 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .glass-emerald {
+    background: rgba(6, 78, 59, 0.15);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+  }
+
+  .paper-texture {
+    background-color: #f5f2ed;
+    background-image: url("https://www.transparenttextures.com/patterns/paper-fibers.png");
+  }
+
+  .paper-texture-dark {
+    background-color: #0f172a;
+    background-image: url("https://www.transparenttextures.com/patterns/dark-matter.png");
+  }
+
+  .arabesque-pattern {
+    background-image: url("https://www.transparenttextures.com/patterns/islamic-art.png");
+    background-repeat: repeat;
+    background-size: 300px;
+  }
+
+  .noise-texture {
+    position: relative;
+  }
+
+  .noise-texture::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    opacity: 0.05;
+    pointer-events: none;
+    background-image: url("https://www.transparenttextures.com/patterns/stardust.png");
+  }
+
+  .premium-islamic-btn {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba(6, 78, 59, 0.9) 0%, rgba(2, 6, 23, 0.95) 100%);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 3rem; /* Squircle-like */
+    box-shadow: 
+      0 10px 30px -10px rgba(0, 0, 0, 0.5),
+      inset 0 1px 1px rgba(255, 255, 255, 0.1),
+      inset 0 -2px 4px rgba(0, 0, 0, 0.4);
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .premium-islamic-btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("https://www.transparenttextures.com/patterns/islamic-art.png");
+    background-size: 200px;
+    opacity: 0.1;
+    mix-blend-mode: overlay;
+    transition: opacity 0.5s ease;
+  }
+
+  .premium-islamic-btn:hover {
+    transform: translateY(-8px) scale(1.02);
+    border-color: rgba(212, 175, 55, 0.6);
+    box-shadow: 
+      0 25px 50px -12px rgba(0, 0, 0, 0.6),
+      0 0 20px rgba(5, 150, 105, 0.2);
+  }
+
+  .premium-islamic-btn:hover::before {
+    opacity: 0.2;
+  }
+
+  .premium-islamic-btn::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top left, rgba(212, 175, 55, 0.15), transparent 70%);
+    pointer-events: none;
+  }
+
+  .ornamental-border {
+    position: relative;
+  }
+
+  .ornamental-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 2px solid transparent;
+    border-radius: inherit;
+    background: linear-gradient(45deg, var(--color-gold-500), transparent, var(--color-gold-500)) border-box;
+    -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0.3;
+  }
+
+  .theme-emerald {
+    --color-primary: #0284c7; /* Sky 600 */
+    --color-accent: #d4af37;
+  }
+
+  .theme-pearl {
+    --color-primary: #d4af37;
+    --color-accent: #064e3b;
+  }
+
+  .theme-navy {
+    --color-primary: #1e3a8a;
+    --color-accent: #d4af37;
+  }
+
+  @keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  .animate-spin-slow {
+    animation: spin-slow 8s linear infinite;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .safe-top {
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  .safe-mb {
+    margin-bottom: env(safe-area-inset-bottom, 0px);
+  }
+}

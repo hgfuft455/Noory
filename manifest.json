@@ -1,0 +1,9 @@
+{
+  "name": "نور الهدى",
+  "short_name": "نور الهدى",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#064e3b",
+  "theme_color": "#064e3b",
+  "icons": []
+}
